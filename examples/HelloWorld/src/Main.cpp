@@ -3,17 +3,19 @@
 #include <Dusk/Main.hpp>
 #include <Dusk/Program.hpp>
 
-class TestProgram : public dusk::Program
+using namespace dusk;
+
+class TestProgram : public Program
 {
 public:
     virtual void Init(int argc, char** argv) override
     {
-        mp_Window.reset(new dusk::Window(1024, 768, "Test Window"));
-        dusk::Program::Init(argc, argv);
+        SetWindow(new Window(1024, 768, "Test Window"));
+        Program::Init(argc, argv);
     }
 };
 
 int main(int argc, char** argv)
 {
-    return dusk::Main<TestProgram>(argc, argv);
+    return Main<TestProgram>(argc, argv);
 }

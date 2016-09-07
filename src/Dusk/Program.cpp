@@ -44,15 +44,14 @@ Context* Program::GetContext()
 
 void Program::Init(int argc, char** argv)
 {
-    if (!mp_Window)
+    if (!GetWindow())
     {
-        mp_Window.reset(new Window(640, 480, "Hello"));
+        SetWindow(new Window(640, 480, "Dusk"));
     }
 }
 
 void Program::Term()
 {
-    mp_Window.reset(nullptr);
 }
 
 void Program::Load()
@@ -76,5 +75,16 @@ void Program::Render()
 
     GetContext()->Display();
 }
+
+void Program::SetWindow(Window* pWindow)
+{
+    mp_Window.reset(pWindow);
+}
+
+void Program::SetLoader(Loader* pLoader)
+{
+    mp_Loader.reset(pLoader);
+}
+
 
 } // namespace dusk

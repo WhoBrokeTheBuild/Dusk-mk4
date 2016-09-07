@@ -69,6 +69,7 @@ tests/*_test
 lastrun.log
 .gdbinit
 *.zip
+docs
 
 # Visual Studio
 *.VC.*

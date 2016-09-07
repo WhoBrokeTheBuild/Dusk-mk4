@@ -26,8 +26,10 @@ public:
      */
     virtual void Init(int argc, char** argv);
 
-    ///
-    /**
+    /// The main application loop, this will call Init(), Update(), Render() and Term() functions
+    /** This function calls Init() first, then loops for as long as the window is open. During that
+     *  loop, it calls Update(), followed by PreRender(), Render(), and PostRender() in that order.
+     *  Once the window is closed, this function will call Term()
      */
     virtual void Run();
 
@@ -59,12 +61,30 @@ protected:
      */
     virtual void Update();
 
+    /// The pre-render function of the program, called just before Render()
+    /** This is used to clear the screen, and prepare it for rendering.
+     */
+    virtual void PreRender();
+
     /// The main render function of the program, called by the Run() function every frame
-    /** This triggers clearing/displaying of the window, and allows for draw methods to be called on
-     *  the context. This should not be used for any updating of objects, but just rendering them.
+    /** This allows for draw methods to be called on the context. This should not be used for any
+     *  updating of objects, but just rendering them.
      */
     virtual void Render();
 
+    /// The post-render function of the program, called just after Render()
+    /** This is used to flip the buffers, and cause the changes that have been rendered to appear on
+     *  the screen.
+     */
+    virtual void PostRender();
+
+    /// Update the window pointer, deleting the old one
+    void SetWindow(Window* pWindow);
+
+    /// Update the loader pointer, deleting the old one
+    void SetLoader(Loader* pLoader);
+
+private:
     unique_ptr<Window> mp_Window;
     unique_ptr<Loader> mp_Loader;
 
