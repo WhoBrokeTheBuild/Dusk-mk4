@@ -2,6 +2,7 @@
 #define DUSK_TEXTURE_RESOURCE_HPP
 
 #include <Dusk/Resources/Resource.hpp>
+#include <Dusk/Graphics/Texture.hpp>
 #include <Dusk/Types.hpp>
 #include <SFML/Graphics.hpp>
 
@@ -20,10 +21,12 @@ public:
     TextureResource(const TextureResource&) = delete;
     virtual ~TextureResource() = default;
 
-protected:
-    TextureResource(sf::Texture texture);
+    virtual void* GetResource() override;
 
-    sf::Texture m_SfTexture;
+protected:
+    TextureResource(Texture* pTexture);
+
+    unique_ptr<Texture> mp_Texture;
 
 }; // class TextureResource
 

@@ -17,4 +17,9 @@ FontResource::FontResource(sf::Font font)
 {
 }
 
+void* FontResource::GetResource()
+{
+    return nullptr;
+}
+
 } // namespace dusk

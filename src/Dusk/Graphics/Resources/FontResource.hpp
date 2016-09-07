@@ -20,6 +20,8 @@ public:
     FontResource(const FontResource&) = delete;
     virtual ~FontResource() = default;
 
+    virtual void* GetResource() override;
+
 protected:
     FontResource(sf::Font font);
 

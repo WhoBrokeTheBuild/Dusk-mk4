@@ -1,5 +1,7 @@
 
 #include <Dusk/Graphics/Window.hpp>
+#include <Dusk/Graphics/Resources/TextureResource.hpp>
+#include <Dusk/Resources/ResourceLibrary.hpp>
 #include <Dusk/Main.hpp>
 #include <Dusk/Program.hpp>
 
@@ -16,9 +18,15 @@ public:
 
     virtual void Load() override
     {
-        GetResourceLibrary()->Load("assets/test.png");
-        GetResourceLibrary()->Load("assets/test.jpg");
+        GetResourceLibrary()->Load("assets/test.png", "test-png");
+        GetResourceLibrary()->Load("assets/test.jpg", "test-jpg");
         GetResourceLibrary()->Load("assets/Roboto.ttf");
+    }
+
+    virtual void Render() override
+    {
+        Texture* tex = GetResourceLibrary()->GetResource<Texture>("test-jpg");
+        GetRenderContext()->Draw(tex, Vector2f(0.0f, 0.0f));
     }
 };
 

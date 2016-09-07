@@ -1,8 +1,9 @@
 #ifndef DUSK_RENDER_CONTEXT_HPP
 #define DUSK_RENDER_CONTEXT_HPP
 
-#include <Dusk/Graphics/Window.hpp>
 #include <Dusk/Types.hpp>
+#include <Dusk/Graphics/Window.hpp>
+#include <Dusk/Graphics/Texture.hpp>
 #include <SFML/Graphics.hpp>
 
 namespace dusk
@@ -22,6 +23,8 @@ public:
 
     void Clear();
     void Display();
+
+    void Draw(Texture* pTexture, Vector2f position);
 
 private:
     RenderContext(sf::RenderWindow* pWindow);

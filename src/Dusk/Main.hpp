@@ -8,8 +8,7 @@ template <class _Program>
 int Main(int argc, char** argv)
 {
     _Program* prog = new _Program();
-    prog->Init(argc, argv);
-    prog->Run();
+    prog->Run(argc, argv);
     delete prog;
 
     return 0;

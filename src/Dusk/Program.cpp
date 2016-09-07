@@ -11,11 +11,11 @@ Program::Program()
 
 Program::~Program()
 {
-    Term();
 }
 
-void Program::Run()
+void Program::Run(int argc, char** argv)
 {
+    Init(argc, argv);
     Load();
 
     while (mp_Window->IsOpen())
@@ -28,6 +28,7 @@ void Program::Run()
     }
 
     Unload();
+    Term();
 }
 
 Window* Program::GetWindow()

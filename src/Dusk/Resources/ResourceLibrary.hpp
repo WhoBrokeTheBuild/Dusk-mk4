@@ -24,11 +24,15 @@ public:
     void AddLoader(const string& extension, LoadFunc function);
 
     template <class _Type>
-    _Type* GetResource(const string& id);
+    _Type* GetResource(const string& id)
+    {
+        Resource* pResource = m_Resources[id].get();
+        return static_cast<_Type*>(pResource->GetResource());
+    }
 
 private:
     std::unordered_map<string, LoadFunc> m_Loaders;
-    std::unordered_map<string, shared_ptr<Resource> > m_Resources;
+    std::unordered_map<string, unique_ptr<Resource> > m_Resources;
 
 }; // class ResourceLibrary
 

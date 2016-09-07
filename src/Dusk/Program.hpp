@@ -21,23 +21,24 @@ public:
     Program();
     virtual ~Program();
 
-    /// The function fired upon construction of the program instance.
-    /** This creates the window, resource loader, etc. but does not load any content.
-     */
-    virtual void Init(int argc, char** argv);
-
-    /// The main application loop, this will call Init(), Update(), Render() and Term() functions
-    /** This function calls Init() first, then loops for as long as the window is open. During that
+    /// The main application loop, this will call Init(), Load(), Update(), Render(), Unload(), and Term() functions.
+    /** This function calls Init() first, then Load(), then loops for as long as the window is open. During that
      *  loop, it calls Update(), followed by PreRender(), Render(), and PostRender() in that order.
-     *  Once the window is closed, this function will call Term()
+     *  Once the window is closed, this function will call Unload() and then Term().
      */
-    virtual void Run();
+    virtual void Run(int argc, char** argv);
 
     Window* GetWindow();
     ResourceLibrary* GetResourceLibrary();
     RenderContext* GetRenderContext();
 
 protected:
+
+    /// The function used to initiate core resources, like the window and resource library.
+    /** This creates the window, resource library, etc. but does not load any content.
+     */
+    virtual void Init(int argc, char** argv);
+
     /// The function fired upon destruction of the program instance.
     /** This calls any cleanup functions related to the window, resource loader, or any other
      *  internal classes. This does not handle unloading of content, see Unload()
