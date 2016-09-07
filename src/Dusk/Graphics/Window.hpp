@@ -8,7 +8,7 @@
 namespace dusk
 {
 
-class Context;
+class RenderContext;
 
 class Window
 {
@@ -43,12 +43,12 @@ public:
     bool IsOpen();
     void Close();
 
-    Context* GetContext();
+    RenderContext* GetRenderContext();
 
 private:
     unique_ptr<sf::RenderWindow> mp_SfWindow;
 
-    unique_ptr<Context> mp_Context;
+    unique_ptr<RenderContext> mp_RenderContext;
 
 }; // class Window
 

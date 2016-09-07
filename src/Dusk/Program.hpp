@@ -1,9 +1,9 @@
 #ifndef DUSK_PROGRAM_HPP
 #define DUSK_PROGRAM_HPP
 
-#include <Dusk/Graphics/Context.hpp>
+#include <Dusk/Graphics/RenderContext.hpp>
 #include <Dusk/Graphics/Window.hpp>
-#include <Dusk/Resource/Loader.hpp>
+#include <Dusk/Resources/ResourceLibrary.hpp>
 #include <Dusk/Types.hpp>
 
 namespace dusk
@@ -34,11 +34,10 @@ public:
     virtual void Run();
 
     Window* GetWindow();
-    Loader* GetLoader();
-    Context* GetContext();
+    ResourceLibrary* GetResourceLibrary();
+    RenderContext* GetRenderContext();
 
 protected:
-
     /// The function fired upon destruction of the program instance.
     /** This calls any cleanup functions related to the window, resource loader, or any other
      *  internal classes. This does not handle unloading of content, see Unload()
@@ -82,11 +81,11 @@ protected:
     void SetWindow(Window* pWindow);
 
     /// Update the loader pointer, deleting the old one
-    void SetLoader(Loader* pLoader);
+    void SetResourceLibrary(ResourceLibrary* pResourceLibrary);
 
 private:
     unique_ptr<Window> mp_Window;
-    unique_ptr<Loader> mp_Loader;
+    unique_ptr<ResourceLibrary> mp_ResourceLibrary;
 
 }; // class Program
 

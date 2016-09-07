@@ -1,7 +1,7 @@
 
 #include <Dusk/Graphics/Window.hpp>
-#include <Dusk/Main.hpp>
 #include <Dusk/Program.hpp>
+#include <Dusk/Main.hpp>
 
 using namespace dusk;
 

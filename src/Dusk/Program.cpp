@@ -5,7 +5,7 @@ namespace dusk
 
 Program::Program()
     : mp_Window(nullptr)
-    , mp_Loader(nullptr)
+    , mp_ResourceLibrary(nullptr)
 {
 }
 
@@ -21,7 +21,10 @@ void Program::Run()
     while (mp_Window->IsOpen())
     {
         Update();
+
+        PreRender();
         Render();
+        PostRender();
     }
 
     Unload();
@@ -32,14 +35,14 @@ Window* Program::GetWindow()
     return mp_Window.get();
 }
 
-Loader* Program::GetLoader()
+ResourceLibrary* Program::GetResourceLibrary()
 {
-    return mp_Loader.get();
+    return mp_ResourceLibrary.get();
 }
 
-Context* Program::GetContext()
+RenderContext* Program::GetRenderContext()
 {
-    return mp_Window->GetContext();
+    return mp_Window->GetRenderContext();
 }
 
 void Program::Init(int argc, char** argv)
@@ -69,11 +72,18 @@ void Program::Update()
     mp_Window->Update();
 }
 
+void Program::PreRender()
+{
+    GetRenderContext()->Clear();
+}
+
 void Program::Render()
 {
-    GetContext()->Clear();
+}
 
-    GetContext()->Display();
+void Program::PostRender()
+{
+    GetRenderContext()->Display();
 }
 
 void Program::SetWindow(Window* pWindow)
@@ -81,10 +91,9 @@ void Program::SetWindow(Window* pWindow)
     mp_Window.reset(pWindow);
 }
 
-void Program::SetLoader(Loader* pLoader)
+void Program::SetResourceLibrary(ResourceLibrary* pResourceLibrary)
 {
-    mp_Loader.reset(pLoader);
+    mp_ResourceLibrary.reset(pResourceLibrary);
 }
-
 
 } // namespace dusk

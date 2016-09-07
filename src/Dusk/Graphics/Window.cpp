@@ -1,13 +1,13 @@
 #include "Window.hpp"
 
-#include <Dusk/Graphics/Context.hpp>
+#include <Dusk/Graphics/RenderContext.hpp>
 
 namespace dusk
 {
 
 Window::Window(const uint& width, const uint& height, const string& title, const Style& style /*= Style::Default*/)
     : mp_SfWindow(new sf::RenderWindow(sf::VideoMode(width, height), title, (sf::Uint32)style))
-    , mp_Context(new Context(mp_SfWindow.get()))
+    , mp_RenderContext(new RenderContext(mp_SfWindow.get()))
 {
 }
 
@@ -63,9 +63,9 @@ void Window::Close()
     mp_SfWindow->close();
 }
 
-Context* Window::GetContext()
+RenderContext* Window::GetRenderContext()
 {
-    return mp_Context.get();
+    return mp_RenderContext.get();
 }
 
 } // namespace dusk

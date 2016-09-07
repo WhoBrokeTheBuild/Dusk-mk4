@@ -1,19 +1,19 @@
-#include "Context.hpp"
+#include "RenderContext.hpp"
 
 namespace dusk
 {
 
-Context::Context(sf::RenderWindow* pWindow)
+RenderContext::RenderContext(sf::RenderWindow* pWindow)
     : mp_Window(pWindow)
 {
 }
 
-void Context::Clear()
+void RenderContext::Clear()
 {
     mp_Window->clear(sf::Color::Black);
 }
 
-void Context::Display()
+void RenderContext::Display()
 {
     mp_Window->display();
 }
