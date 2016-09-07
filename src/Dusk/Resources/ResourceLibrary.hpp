@@ -1,8 +1,8 @@
 #ifndef DUSK_RESOURCE_LIBRARY_HPP
 #define DUSK_RESOURCE_LIBRARY_HPP
 
-#include <Dusk/Types.hpp>
 #include <Dusk/Resources/Resource.hpp>
+#include <Dusk/Types.hpp>
 #include <functional>
 #include <unordered_map>
 

@@ -4,7 +4,7 @@
 namespace dusk
 {
 
-bool Texture::Load(const string &filename)
+bool Texture::Load(const string& filename)
 {
     return m_SfTexture.loadFromFile(filename);
 }

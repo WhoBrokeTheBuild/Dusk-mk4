@@ -7,14 +7,12 @@ namespace dusk
 class Resource
 {
 public:
-
     Resource(const Resource&) = delete;
     virtual ~Resource() = default;
 
     virtual void* GetResource() = 0;
 
 protected:
-
     Resource() = default;
 
 }; // class Resource

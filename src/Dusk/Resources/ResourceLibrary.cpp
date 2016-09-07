@@ -1,8 +1,8 @@
 #include "ResourceLibrary.hpp"
 
-#include <Dusk/Logging/Log.hpp>
-#include <Dusk/Graphics/Resources/TextureResource.hpp>
 #include <Dusk/Graphics/Resources/FontResource.hpp>
+#include <Dusk/Graphics/Resources/TextureResource.hpp>
+#include <Dusk/Logging/Log.hpp>
 
 namespace dusk
 {

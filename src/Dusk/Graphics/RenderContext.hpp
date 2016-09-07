@@ -1,9 +1,9 @@
 #ifndef DUSK_RENDER_CONTEXT_HPP
 #define DUSK_RENDER_CONTEXT_HPP
 
-#include <Dusk/Types.hpp>
-#include <Dusk/Graphics/Window.hpp>
 #include <Dusk/Graphics/Texture.hpp>
+#include <Dusk/Graphics/Window.hpp>
+#include <Dusk/Types.hpp>
 #include <SFML/Graphics.hpp>
 
 namespace dusk

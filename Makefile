@@ -2,7 +2,7 @@ TARGET = libdusk
 include make/config.mk
 
 .PHONY: all static dynamic clean clean_deps clean_objects clean_targets \
-   		install test check
+   		install format docs test check
 
 # Dynamically get the sources/objects/tests
 
@@ -75,6 +75,11 @@ install: all
 format:
 	clang-format -style=file -i $(filter-out $(SRC_DIR)/thirdparty%,$(SOURCES)) \
 		$(filter-out $(SRC_DIR)/thirdparty%,$(HEADERS))
+
+# Generate documentation
+
+docs:
+	doxygen doxygen.config
 
 # Builds test executables
 

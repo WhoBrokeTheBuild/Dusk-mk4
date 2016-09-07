@@ -33,7 +33,6 @@ public:
     RenderContext* GetRenderContext();
 
 protected:
-
     /// The function used to initiate core resources, like the window and resource library.
     /** This creates the window, resource library, etc. but does not load any content.
      */

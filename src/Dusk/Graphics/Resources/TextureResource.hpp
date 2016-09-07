@@ -1,8 +1,8 @@
 #ifndef DUSK_TEXTURE_RESOURCE_HPP
 #define DUSK_TEXTURE_RESOURCE_HPP
 
-#include <Dusk/Resources/Resource.hpp>
 #include <Dusk/Graphics/Texture.hpp>
+#include <Dusk/Resources/Resource.hpp>
 #include <Dusk/Types.hpp>
 #include <SFML/Graphics.hpp>
 

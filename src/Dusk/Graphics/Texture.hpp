@@ -15,7 +15,6 @@ class Texture
     friend class RenderContext;
 
 public:
-
     Texture() = default;
     Texture(const Texture&) = delete;
     virtual ~Texture() = default;
@@ -23,7 +22,6 @@ public:
     bool Load(const string& filename);
 
 protected:
-
     sf::Texture& GetSfTexture();
     sf::Texture GetSfTexture() const;
 
