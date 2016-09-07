@@ -1,7 +1,7 @@
 
 #include <Dusk/Graphics/Window.hpp>
-#include <Dusk/Program.hpp>
 #include <Dusk/Main.hpp>
+#include <Dusk/Program.hpp>
 
 using namespace dusk;
 
@@ -12,6 +12,13 @@ public:
     {
         SetWindow(new Window(1024, 768, "Test Window"));
         Program::Init(argc, argv);
+    }
+
+    virtual void Load() override
+    {
+        GetResourceLibrary()->Load("assets/test.png");
+        GetResourceLibrary()->Load("assets/test.jpg");
+        GetResourceLibrary()->Load("assets/Roboto.ttf");
     }
 };
 

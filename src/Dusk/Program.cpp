@@ -51,6 +51,11 @@ void Program::Init(int argc, char** argv)
     {
         SetWindow(new Window(640, 480, "Dusk"));
     }
+
+    if (!GetResourceLibrary())
+    {
+        SetResourceLibrary(new ResourceLibrary());
+    }
 }
 
 void Program::Term()

@@ -7,8 +7,6 @@ namespace dusk
 class Resource
 {
 public:
-
-
 }; // class Resource
 
 } // namespace dusk

@@ -12,10 +12,14 @@ namespace dusk
 class ResourceLibrary
 {
 public:
-
     typedef std::function<Resource*(const string&)> LoadFunc;
 
-    bool Load(const string& filename, const string& id = "");
+    ResourceLibrary(const ResourceLibrary&) = delete;
+
+    ResourceLibrary();
+    virtual ~ResourceLibrary();
+
+    bool Load(const string& filename, string id = "");
 
     void AddLoader(const string& extension, LoadFunc function);
 
@@ -23,9 +27,8 @@ public:
     _Type* GetResource(const string& id);
 
 private:
-
     std::unordered_map<string, LoadFunc> m_Loaders;
-    std::unordered_map<string, shared_ptr<Resource>> m_Resources;
+    std::unordered_map<string, shared_ptr<Resource> > m_Resources;
 
 }; // class ResourceLibrary
 
