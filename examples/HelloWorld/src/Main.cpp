@@ -12,7 +12,7 @@ class TestProgram : public Program
 public:
     virtual void Init(int argc, char** argv) override
     {
-        SetWindow(new Window(1024, 768, "Test Window"));
+        SetWindow(new Window(640, 480, "Test Window"));
         Program::Init(argc, argv);
     }
 
@@ -21,13 +21,21 @@ public:
         GetResourceLibrary()->Load("assets/test.png", "test-png");
         GetResourceLibrary()->Load("assets/test.jpg", "test-jpg");
         GetResourceLibrary()->Load("assets/Roboto.ttf");
+
+        mp_Tex = GetResourceLibrary()->GetResource<Texture>("test-jpg");
     }
 
     virtual void Render() override
     {
-        Texture* tex = GetResourceLibrary()->GetResource<Texture>("test-jpg");
-        GetRenderContext()->Draw(tex, Vector2f(0.0f, 0.0f));
+        if (mp_Tex) {
+            GetRenderContext()->Draw(mp_Tex, Vector2f(0.0f, 0.0f));
+        }
     }
+
+private:
+
+    Texture* mp_Tex = nullptr;
+
 };
 
 int main(int argc, char** argv)

@@ -16,6 +16,8 @@ case $distro in
         sudo dnf install -y \
             make \
             clang \
+            valgrind \
+            doxygen \
             SFML-devel \
             asio-devel \
             lua-devel \
@@ -25,6 +27,8 @@ case $distro in
         sudo yum install -y \
             make \
             clang \
+            valgrind \
+            doxygen \
             SFML-devel \
             asio-devel \
             lua-devel \
@@ -36,6 +40,8 @@ case $distro in
         sudo apt-get install -y \
             make \
             clang \
+            valgrind \
+            doxygen \
             libsfml \
             libsfml-dev \
             libasio-dev \
